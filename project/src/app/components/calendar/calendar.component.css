@@ -1,0 +1,375 @@
+/* Main calendar page container with padding */
+.calendar-page {
+  padding: var(--spacing-8);
+}
+
+/* Header section layout: title and action buttons */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-8);
+}
+
+/* Page title styling */
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-2);
+  color: var(--neutral-800);
+}
+
+/* Page subtitle styling */
+.page-header p {
+  color: var(--neutral-600);
+  font-size: 1.125rem;
+}
+
+/* Container for action buttons in header */
+.header-actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+/* Controls above the calendar: navigation, view selection, filters */
+.calendar-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-8);
+  padding: var(--spacing-4);
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Controls to switch between calendar views (month/week) */
+.view-controls {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+/* Active view button styling */
+.view-controls button.active {
+  background-color: var(--primary-500) !important;
+  color: white !important;
+}
+
+/* Navigation buttons (previous, next, today) */
+.navigation-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+/* Display for current month or week */
+.current-period {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--neutral-800);
+  min-width: 200px;
+  text-align: center;
+}
+
+/* Dropdown filter for course or user roles */
+.filter-controls {
+  min-width: 200px;
+}
+
+/* Main content box holding the calendar */
+.calendar-content {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  margin-bottom: var(--spacing-8);
+}
+
+/* Container for calendar grid */
+.calendar-grid {
+  padding: var(--spacing-6);
+}
+
+/* Calendar days header (Mon, Tue, ...) */
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+/* Individual day header cell */
+.day-header {
+  text-align: center;
+  font-weight: 600;
+  color: var(--neutral-600);
+  padding: var(--spacing-3);
+}
+
+/* Container for calendar body */
+.calendar-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+/* Each row in the calendar represents a week */
+.calendar-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-2);
+}
+
+/* Each individual day cell */
+.calendar-day {
+  min-height: 120px;
+  padding: var(--spacing-3);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for day cell */
+.calendar-day:hover {
+  background-color: var(--primary-50);
+  border-color: var(--primary-200);
+}
+
+/* Dimmed appearance for days outside the current month */
+.calendar-day.other-month {
+  opacity: 0.4;
+}
+
+/* Highlight today’s date */
+.calendar-day.today {
+  background-color: var(--primary-100);
+  border-color: var(--primary-400);
+}
+
+/* Highlight selected day */
+.calendar-day.selected {
+  background-color: var(--primary-200);
+  border-color: var(--primary-500);
+}
+
+/* Day number inside a cell */
+.day-number {
+  font-weight: 600;
+  color: var(--neutral-800);
+  margin-bottom: var(--spacing-2);
+}
+
+/* Container for events within a day */
+.day-events {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+/* Individual event item in day view */
+.event-item {
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: white;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Week view layout */
+.week-view {
+  display: flex;
+  padding: var(--spacing-6);
+}
+
+/* Time labels column on left in week view */
+.time-column {
+  width: 80px;
+  margin-right: var(--spacing-4);
+}
+
+/* Individual hourly time slot */
+.time-slot {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+  border-bottom: 1px solid var(--neutral-100);
+}
+
+/* Container for 7 days in week view */
+.week-days {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-2);
+}
+
+/* Each day column in week view */
+.week-day {
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Header for each day in week view */
+.week-day .day-header {
+  padding: var(--spacing-3);
+  background-color: var(--neutral-50);
+  text-align: center;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+/* Name of the day (e.g., Monday) */
+.day-name {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Numeric date next to day name */
+.day-date {
+  color: var(--neutral-600);
+  margin-left: var(--spacing-2);
+}
+
+/* Container for scheduled events in week view */
+.day-schedule {
+  position: relative;
+  height: 720px; /* 12 hours * 60px per hour */
+}
+
+/* Event block in week view (positioned by time) */
+.event-block {
+  position: absolute;
+  left: var(--spacing-2);
+  right: var(--spacing-2);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 0.875rem;
+}
+
+/* Event title inside block */
+.event-title {
+  font-weight: 600;
+  margin-bottom: var(--spacing-1);
+}
+
+/* Time text inside event block */
+.event-time {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* Upcoming events sidebar section */
+.upcoming-events {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Upcoming events header */
+.upcoming-events h3 {
+  margin-bottom: var(--spacing-6);
+  color: var(--neutral-800);
+}
+
+/* List container for upcoming events */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* Card for each upcoming event */
+.event-card {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-4) !important;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect on event card */
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Vertical color indicator for event */
+.event-indicator {
+  width: 4px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  margin-right: var(--spacing-4);
+}
+
+/* Main event detail container */
+.event-details {
+  flex: 1;
+}
+
+/* Event title */
+.event-details h4 {
+  margin-bottom: var(--spacing-1);
+  color: var(--neutral-800);
+}
+
+/* Course name or type */
+.event-course {
+  color: var(--neutral-600);
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-2);
+}
+
+/* Meta details: time, date, etc. */
+.event-meta {
+  display: flex;
+  gap: var(--spacing-4);
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+}
+
+/* Actions like edit/delete */
+.event-actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+/* Responsive layout adjustments for mobile */
+@media (max-width: 768px) {
+  .calendar-page {
+    padding: var(--spacing-4);
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    align-items: flex-start;
+  }
+
+  .calendar-controls {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    align-items: stretch;
+  }
+
+  .navigation-controls {
+    justify-content: center;
+  }
+
+  .calendar-week {
+    grid-template-columns: 1fr;
+  }
+
+  .week-view {
+    flex-direction: column;
+  }
+
+  .week-days {
+    grid-template-columns: 1fr;
+  }
+}

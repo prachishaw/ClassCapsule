@@ -1,0 +1,129 @@
+/* Container for the entire authentication page layout */
+.auth-container {
+  min-height: 100vh; /* Full height */
+  display: flex; /* Flex layout */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%); /* Gradient background */
+  padding: var(--spacing-4); /* Outer padding */
+}
+
+/* Card element for login/signup form */
+.auth-card {
+  width: 100%; /* Take full width */
+  max-width: 400px; /* Limit maximum width */
+  padding: var(--spacing-6); /* Inner padding */
+}
+
+/* Header section inside the auth card */
+.auth-header {
+  text-align: center; /* Center align text */
+  margin-bottom: var(--spacing-6); /* Space below header */
+}
+
+/* Logo container with icon and text */
+.logo {
+  display: flex; /* Flex layout */
+  align-items: center; /* Vertically align */
+  justify-content: center; /* Center horizontally */
+  gap: var(--spacing-3); /* Space between icon and text */
+  margin-bottom: var(--spacing-4); /* Space below logo */
+}
+
+/* Icon part of the logo */
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* Gradient */
+  border-radius: var(--radius-lg); /* Rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem; /* Font size for icon text */
+}
+
+/* Text part of the logo */
+.logo-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+}
+
+/* Heading text inside auth header */
+.auth-header h2 {
+  margin-bottom: var(--spacing-2); /* Space below heading */
+  color: var(--neutral-800);
+}
+
+/* Paragraph text inside auth header */
+.auth-header p {
+  color: var(--neutral-600);
+  margin: 0;
+}
+
+/* Utility class to make elements full width with margin bottom */
+.full-width {
+  width: 100%;
+  margin-bottom: var(--spacing-4);
+}
+
+/* Button styling */
+.auth-button {
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: var(--spacing-4);
+}
+
+/* Footer section in auth page */
+.auth-footer {
+  text-align: center;
+  width: 100%;
+}
+
+/* Text inside footer */
+.auth-footer p {
+  margin: 0;
+  color: var(--neutral-600);
+}
+
+/* Spinner element with right margin */
+mat-spinner {
+  margin-right: var(--spacing-2);
+}
+
+/* Container for each user role option */
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+}
+
+/* Icon representing a role */
+.role-icon {
+  font-size: 1.5rem;
+  width: 32px;
+  text-align: center;
+}
+
+/* Container for role title and description */
+.role-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Role title text */
+.role-title {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Role description text */
+.role-description {
+  font-size: 0.875rem;
+  color: var(--neutral-600);
+  margin-top: 2px;
+}

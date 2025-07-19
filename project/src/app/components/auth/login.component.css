@@ -1,0 +1,93 @@
+/* ========== Auth Container ========== */
+.auth-container {
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the auth card horizontally and vertically */
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%); /* Gradient background */
+  padding: var(--spacing-4); /* Padding around the content */
+}
+
+/* ========== Auth Card ========== */
+.auth-card {
+  width: 100%;
+  max-width: 400px; /* Responsive max width */
+  padding: var(--spacing-6); /* Inner padding for content */
+}
+
+/* ========== Auth Header Section ========== */
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--spacing-6); /* Space below the header */
+}
+
+/* ========== Logo Section ========== */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3); /* Space between icon and text */
+  margin-bottom: var(--spacing-4);
+}
+
+/* Logo Icon Styling */
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* Icon gradient */
+  border-radius: var(--radius-lg); /* Rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Logo Text Styling */
+.logo-text {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--neutral-800);
+}
+
+/* ========== Headings and Paragraphs in Header ========== */
+.auth-header h2 {
+  margin-bottom: var(--spacing-2);
+  color: var(--neutral-800); /* Dark heading color */
+}
+
+.auth-header p {
+  color: var(--neutral-600); /* Subdued description */
+  margin: 0;
+}
+
+/* ========== Full Width Input/Button Utility ========== */
+.full-width {
+  width: 100%;
+  margin-bottom: var(--spacing-4); /* Space between inputs/buttons */
+}
+
+/* ========== Auth Button Styling ========== */
+.auth-button {
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: var(--spacing-4); /* Space above the button */
+}
+
+/* ========== Footer Section ========== */
+.auth-footer {
+  text-align: center;
+  width: 100%;
+}
+
+.auth-footer p {
+  margin: 0;
+  color: var(--neutral-600); /* Lighter text */
+}
+
+/* ========== Spinner for Loading State ========== */
+mat-spinner {
+  margin-right: var(--spacing-2); /* Space beside text when shown inline */
+}
