@@ -25,6 +25,22 @@ We worked together on all the parts of the project, including design, frontend d
 
 ---
 
+## 📷 Screenshots
+
+### Dashboard
+<img width="1919" height="908" alt="image" src="https://github.com/user-attachments/assets/a335a66c-a22a-4858-833a-e4e824a99fc1" />
+
+### My Courses
+<img width="1917" height="916" alt="image" src="https://github.com/user-attachments/assets/16d123f7-5682-4d91-a39b-f4ce087d7bb0" />
+
+### Calendar View
+<img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/5f43b6a0-eca2-4945-ba4c-710b45ab64fa" />
+
+### Responsive View
+<img width="806" height="1600" alt="image" src="https://github.com/user-attachments/assets/a2166b5b-b82e-4741-a4bc-7a945947ec91" />
+
+---
+
 ## 🚀 Features
 
 ### 🔐 Login and Roles
