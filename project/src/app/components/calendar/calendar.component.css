@@ -1,57 +1,67 @@
+/* The main container for the calendar page */
 .calendar-page {
-  padding: var(--spacing-8);
+  padding: var(--spacing-8); /* Adds space inside the page */
 }
 
+/* The top section that holds the title and buttons */
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--spacing-8);
+  display: flex; /* Places items in a row */
+  justify-content: space-between; /* Puts space between title and buttons */
+  align-items: flex-start; /* Aligns items to the top */
+  margin-bottom: var(--spacing-8); /* Adds space below the header */
 }
 
+/* Styles for the big page title */
 .page-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-2);
-  color: var(--neutral-800);
+  font-size: 2.5rem; /* Big text size */
+  margin-bottom: var(--spacing-2); /* Adds space below the title */
+  color: var(--neutral-800); /* Dark text color */
 }
 
+/* Small paragraph under the title */
 .page-header p {
-  color: var(--neutral-600);
-  font-size: 1.125rem;
+  color: var(--neutral-600); /* Lighter text color */
+  font-size: 1.125rem; /* Medium text size */
 }
 
+/* Container for the buttons in the header */
 .header-actions {
   display: flex;
-  gap: var(--spacing-3);
+  gap: var(--spacing-3); /* Space between buttons */
 }
 
+/* Section for the top controls like filters and view buttons */
 .calendar-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-8);
   padding: var(--spacing-4);
-  background: white;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
+  background: white; /* White background */
+  border-radius: var(--radius-xl); /* Rounded corners */
+  box-shadow: var(--shadow-sm); /* Small shadow for depth */
 }
 
+/* Buttons for switching between views (e.g., month, week) */
 .view-controls {
   display: flex;
   gap: var(--spacing-2);
 }
 
+/* Style for the selected (active) view button */
 .view-controls button.active {
-  background-color: var(--primary-500) !important;
-  color: white !important;
+  background-color: var(--primary-500) !important; /* Highlighted background */
+  color: white !important; /* White text */
 }
 
+/* Buttons for going forward/backward through months or weeks */
 .navigation-controls {
   display: flex;
   align-items: center;
   gap: var(--spacing-4);
 }
 
+/* Text showing which month/week is currently being viewed */
 .current-period {
   margin: 0;
   font-size: 1.5rem;
@@ -60,29 +70,34 @@
   text-align: center;
 }
 
+/* Filters like by department or teacher */
 .filter-controls {
   min-width: 200px;
 }
 
+/* The main calendar box */
 .calendar-content {
   background: white;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
-  overflow: hidden;
+  overflow: hidden; /* Hides anything that overflows the box */
   margin-bottom: var(--spacing-8);
 }
 
+/* Inner padding for calendar content */
 .calendar-grid {
   padding: var(--spacing-6);
 }
 
+/* Grid for the names of the days (Sun, Mon, etc.) */
 .calendar-header {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 1fr); /* 7 equal columns */
   gap: var(--spacing-2);
   margin-bottom: var(--spacing-4);
 }
 
+/* Style for each day name in the header */
 .day-header {
   text-align: center;
   font-weight: 600;
@@ -90,58 +105,68 @@
   padding: var(--spacing-3);
 }
 
+/* Whole calendar body with all weeks and days */
 .calendar-body {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
 }
 
+/* One row (week) in the calendar */
 .calendar-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: var(--spacing-2);
 }
 
+/* A single day box */
 .calendar-day {
   min-height: 120px;
   padding: var(--spacing-3);
   border: 1px solid var(--neutral-200);
   border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all 0.2s ease;
+  cursor: pointer; /* Makes the pointer show a hand */
+  transition: all 0.2s ease; /* Smooth hover effect */
 }
 
+/* Day box when hovered */
 .calendar-day:hover {
   background-color: var(--primary-50);
   border-color: var(--primary-200);
 }
 
+/* Days from other months (like trailing days) */
 .calendar-day.other-month {
-  opacity: 0.4;
+  opacity: 0.4; /* Makes them look faded */
 }
 
+/* Style for the current day */
 .calendar-day.today {
   background-color: var(--primary-100);
   border-color: var(--primary-400);
 }
 
+/* When a day is clicked/selected */
 .calendar-day.selected {
   background-color: var(--primary-200);
   border-color: var(--primary-500);
 }
 
+/* Number for the day (like 1, 2, 3...) */
 .day-number {
   font-weight: 600;
   color: var(--neutral-800);
   margin-bottom: var(--spacing-2);
 }
 
+/* Event list inside each day */
 .day-events {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1);
 }
 
+/* One small event label inside a day */
 .event-item {
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--radius-sm);
@@ -153,16 +178,19 @@
   white-space: nowrap;
 }
 
+/* Weekly view (horizontal view of days) */
 .week-view {
   display: flex;
   padding: var(--spacing-6);
 }
 
+/* Column for time labels like 9 AM, 10 AM... */
 .time-column {
   width: 80px;
   margin-right: var(--spacing-4);
 }
 
+/* One row of time (hourly slot) */
 .time-slot {
   height: 60px;
   display: flex;
@@ -172,6 +200,7 @@
   border-bottom: 1px solid var(--neutral-100);
 }
 
+/* Container for all 7 days in week view */
 .week-days {
   flex: 1;
   display: grid;
@@ -179,12 +208,14 @@
   gap: var(--spacing-2);
 }
 
+/* One column for a day in the week view */
 .week-day {
   border: 1px solid var(--neutral-200);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
+/* Header inside each week-day */
 .week-day .day-header {
   padding: var(--spacing-3);
   background-color: var(--neutral-50);
@@ -192,21 +223,25 @@
   border-bottom: 1px solid var(--neutral-200);
 }
 
+/* Day name inside header */
 .day-name {
   font-weight: 600;
   color: var(--neutral-800);
 }
 
+/* Day date next to name */
 .day-date {
   color: var(--neutral-600);
   margin-left: var(--spacing-2);
 }
 
+/* Where events go inside a week-day */
 .day-schedule {
   position: relative;
-  height: 720px; /* 12 hours * 60px */
+  height: 720px; /* 12 hours x 60px */
 }
 
+/* Box showing where an event is scheduled */
 .event-block {
   position: absolute;
   left: var(--spacing-2);
@@ -217,16 +252,19 @@
   font-size: 0.875rem;
 }
 
+/* Event name */
 .event-title {
   font-weight: 600;
   margin-bottom: var(--spacing-1);
 }
 
+/* Time shown under event name */
 .event-time {
   font-size: 0.75rem;
   opacity: 0.9;
 }
 
+/* Right side panel for upcoming events */
 .upcoming-events {
   background: white;
   border-radius: var(--radius-xl);
@@ -234,17 +272,20 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Title for upcoming events section */
 .upcoming-events h3 {
   margin-bottom: var(--spacing-6);
   color: var(--neutral-800);
 }
 
+/* List of upcoming events */
 .events-list {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
 }
 
+/* One card for an event */
 .event-card {
   display: flex;
   align-items: center;
@@ -252,11 +293,13 @@
   transition: all 0.2s ease;
 }
 
+/* Event card hover effect */
 .event-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
+/* Colored strip on the side of event card */
 .event-indicator {
   width: 4px;
   height: 40px;
@@ -264,21 +307,25 @@
   margin-right: var(--spacing-4);
 }
 
+/* Text part of the event */
 .event-details {
   flex: 1;
 }
 
+/* Title of the event */
 .event-details h4 {
   margin-bottom: var(--spacing-1);
   color: var(--neutral-800);
 }
 
+/* Class name or course of the event */
 .event-course {
   color: var(--neutral-600);
   font-size: 0.875rem;
   margin-bottom: var(--spacing-2);
 }
 
+/* Time or date info */
 .event-meta {
   display: flex;
   gap: var(--spacing-4);
@@ -286,18 +333,20 @@
   color: var(--neutral-500);
 }
 
+/* Buttons like edit or delete */
 .event-actions {
   display: flex;
   gap: var(--spacing-2);
 }
 
+/* Responsive styles for mobile or small screens */
 @media (max-width: 768px) {
   .calendar-page {
-    padding: var(--spacing-4);
+    padding: var(--spacing-4); /* Less padding on small screens */
   }
 
   .page-header {
-    flex-direction: column;
+    flex-direction: column; /* Stack title and buttons */
     gap: var(--spacing-4);
     align-items: flex-start;
   }
@@ -313,7 +362,7 @@
   }
 
   .calendar-week {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Show one column */
   }
 
   .week-view {
@@ -321,6 +370,6 @@
   }
 
   .week-days {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* One day per row */
   }
 }

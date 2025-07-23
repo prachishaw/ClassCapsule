@@ -1,20 +1,22 @@
+// 📦 Importing tools needed to build and run the component
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Angular Material Modules
+// 🧱 Importing buttons, cards, icons, and chips from Angular Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 
-// Services and Models
+// 📡 Importing data service and models (Assignment and Course types)
 import { DataService } from '../../services/data.service';
 import { Assignment, Course } from '../../models/course.model';
 
+// 🧩 This defines the component (like saying “this is a screen/page”)
 @Component({
-  selector: 'app-assignments',
-  standalone: true,
-  // Importing required modules for this standalone component
+  selector: 'app-assignments', // 🔍 This is the name used in HTML to show this component
+  standalone: true, // 🧍 This component works on its own
+  // 🧰 These are other tools this component needs to work properly
   imports: [
     CommonModule,
     MatButtonModule,
@@ -22,63 +24,64 @@ import { Assignment, Course } from '../../models/course.model';
     MatIconModule,
     MatChipsModule
   ],
-  templateUrl: './assignments.component.html',
-  styleUrls: ['./assignments.component.css']
+  templateUrl: './assignments.component.html', // 📄 This is the HTML file connected to this component
+  styleUrls: ['./assignments.component.css']   // 🎨 This is the CSS file to style the component
 })
 export class AssignmentsComponent implements OnInit {
 
-  // Arrays to store assignments and courses fetched from the data service
+  // 📚 These are empty lists to store data we’ll get from the service
   assignments: Assignment[] = [];
   courses: Course[] = [];
 
+  // 🧪 The service is added so we can use it to get data
   constructor(private dataService: DataService) {}
 
   /**
-   * Lifecycle hook: Called once the component is initialized.
-   * Fetches assignments and course data from the backend service.
+   * 🚀 This runs when the page first opens
    */
   ngOnInit() {
-    // Fetch assignment data
+    // 📥 Get all the assignments from the backend
     this.dataService.getAssignments().subscribe(assignments => {
-      this.assignments = assignments;
+      this.assignments = assignments; // 🧺 Store them in the assignments list
     });
 
-    // Fetch course data
+    // 📥 Get all the courses from the backend
     this.dataService.getCourses().subscribe(courses => {
-      this.courses = courses;
+      this.courses = courses; // 🧺 Store them in the courses list
     });
   }
 
   /**
-   * Returns the title of the course by matching the course ID.
-   * @param courseId - ID of the course
-   * @returns Course title or a fallback string
+   * 🏷️ Finds the course name using its ID
+   * @param courseId - The ID of the course
+   * @returns The title of the course or "Unknown Course" if not found
    */
   getCourseTitle(courseId: string): string {
-    const course = this.courses.find(c => c.id === courseId);
-    return course ? course.title : 'Unknown Course';
+    const course = this.courses.find(c => c.id === courseId); // 🔍 Find the course
+    return course ? course.title : 'Unknown Course'; // 🏷️ Return title or 'Unknown'
   }
 
   /**
-   * Returns the associated color for a course using its ID.
-   * @param courseId - ID of the course
-   * @returns Course color or a default gray color
+   * 🎨 Finds the color for a course using its ID
+   * @param courseId - The ID of the course
+   * @returns The color of the course or a default gray
    */
   getCourseColor(courseId: string): string {
-    const course = this.courses.find(c => c.id === courseId);
-    return course ? course.color : '#6B7280'; // Default Tailwind gray
+    const course = this.courses.find(c => c.id === courseId); // 🔍 Find the course
+    return course ? course.color : '#6B7280'; // 🎨 Return color or a gray fallback
   }
 
   /**
-   * Formats the due date in a user-friendly way.
-   * @param date - Due date of the assignment
-   * @returns A string indicating how many days left or overdue
+   * 🗓️ Tells how much time is left or overdue for a date
+   * @param date - The due date of the assignment
+   * @returns A friendly message like "Due tomorrow" or "2 days overdue"
    */
   formatDueDate(date: Date): string {
-    const now = new Date();
-    const diffTime = date.getTime() - now.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const now = new Date(); // 📅 Get today's date
+    const diffTime = date.getTime() - now.getTime(); // 🔢 Get time difference
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // 📏 Change milliseconds into days
 
+    // 🧠 Decide what to say based on how many days are left or late
     if (diffDays < 0) return `${Math.abs(diffDays)} days overdue`;
     if (diffDays === 0) return 'Due today';
     if (diffDays === 1) return 'Due tomorrow';
@@ -86,19 +89,19 @@ export class AssignmentsComponent implements OnInit {
   }
 
   /**
-   * Checks whether the given date is past the current date.
-   * @param date - Date to compare
-   * @returns True if overdue, otherwise false
+   * ❗ Checks if the assignment is late
+   * @param date - The due date
+   * @returns true if it's past the current date
    */
   isOverdue(date: Date): boolean {
-    return date.getTime() < new Date().getTime();
+    return date.getTime() < new Date().getTime(); // ⏰ True if due date is before now
   }
 
   /**
-   * Submits the assignment by updating its status.
-   * @param assignmentId - ID of the assignment to be submitted
+   * ⬆️ Submits an assignment by telling the service to change its status
+   * @param assignmentId - ID of the assignment to submit
    */
   submitAssignment(assignmentId: string) {
-    this.dataService.updateAssignmentStatus(assignmentId, 'submitted');
+    this.dataService.updateAssignmentStatus(assignmentId, 'submitted'); // 🔄 Change the status to 'submitted'
   }
 }

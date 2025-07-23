@@ -1,93 +1,93 @@
 /* ========== Auth Container ========== */
 .auth-container {
-  min-height: 100vh; /* Full viewport height */
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center the auth card horizontally and vertically */
-  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%); /* Gradient background */
-  padding: var(--spacing-4); /* Padding around the content */
+  min-height: 100vh; /* 📏 Make the height as tall as the screen */
+  display: flex; /* 🎯 Use flex layout to arrange items */
+  align-items: center; /* 🧍‍♀️ Center items vertically */
+  justify-content: center; /* ↔️ Center items horizontally */
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%); /* 🎨 Create a gradient background */
+  padding: var(--spacing-4); /* 📦 Add space around the inside */
 }
 
 /* ========== Auth Card ========== */
 .auth-card {
-  width: 100%;
-  max-width: 400px; /* Responsive max width */
-  padding: var(--spacing-6); /* Inner padding for content */
+  width: 100%; /* 📏 Take full width of container */
+  max-width: 400px; /* 📏 But don’t go wider than 400px */
+  padding: var(--spacing-6); /* 📦 Space inside the card */
 }
 
 /* ========== Auth Header Section ========== */
 .auth-header {
-  text-align: center;
-  margin-bottom: var(--spacing-6); /* Space below the header */
+  text-align: center; /* 📍Put text in the center */
+  margin-bottom: var(--spacing-6); /* ⬇️ Add space under the header */
 }
 
 /* ========== Logo Section ========== */
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-3); /* Space between icon and text */
-  margin-bottom: var(--spacing-4);
+  display: flex; /* 🎯 Use flex layout to arrange icon and text */
+  align-items: center; /* 🧍‍♀️ Center them vertically */
+  justify-content: center; /* ↔️ Center them horizontally */
+  gap: var(--spacing-3); /* ↔️ Space between icon and text */
+  margin-bottom: var(--spacing-4); /* ⬇️ Space below the logo */
 }
 
 /* Logo Icon Styling */
 .logo-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* Icon gradient */
-  border-radius: var(--radius-lg); /* Rounded corners */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 1.5rem;
+  width: 50px; /* 📏 Set width to 50 pixels */
+  height: 50px; /* 📏 Set height to 50 pixels */
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* 🎨 Gradient color inside icon */
+  border-radius: var(--radius-lg); /* 🟢 Make corners rounded */
+  display: flex; /* 🎯 Use flex to center the text/icon */
+  align-items: center; /* 🧍‍♀️ Center vertically */
+  justify-content: center; /* ↔️ Center horizontally */
+  color: white; /* 🎨 Make the text color white */
+  font-weight: 700; /* 🅱️ Make the text bold */
+  font-size: 1.5rem; /* 🔠 Make the text medium-large */
 }
 
 /* Logo Text Styling */
 .logo-text {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--neutral-800);
+  font-size: 1.75rem; /* 🔠 Make the logo name big */
+  font-weight: 700; /* 🅱️ Make the text bold */
+  color: var(--neutral-800); /* 🎨 Dark text color */
 }
 
 /* ========== Headings and Paragraphs in Header ========== */
 .auth-header h2 {
-  margin-bottom: var(--spacing-2);
-  color: var(--neutral-800); /* Dark heading color */
+  margin-bottom: var(--spacing-2); /* ⬇️ Space below the heading */
+  color: var(--neutral-800); /* 🎨 Dark heading text */
 }
 
 .auth-header p {
-  color: var(--neutral-600); /* Subdued description */
-  margin: 0;
+  color: var(--neutral-600); /* 🎨 Light gray paragraph text */
+  margin: 0; /* 🚫 No extra space around the paragraph */
 }
 
 /* ========== Full Width Input/Button Utility ========== */
 .full-width {
-  width: 100%;
-  margin-bottom: var(--spacing-4); /* Space between inputs/buttons */
+  width: 100%; /* 📏 Stretch to full width */
+  margin-bottom: var(--spacing-4); /* ⬇️ Space below it */
 }
 
 /* ========== Auth Button Styling ========== */
 .auth-button {
-  height: 48px;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: var(--spacing-4); /* Space above the button */
+  height: 48px; /* 📏 Make button 48px tall */
+  font-size: 1rem; /* 🔠 Regular size text */
+  font-weight: 600; /* 🅱️ Semi-bold text */
+  margin-top: var(--spacing-4); /* ⬆️ Space above the button */
 }
 
 /* ========== Footer Section ========== */
 .auth-footer {
-  text-align: center;
-  width: 100%;
+  text-align: center; /* 📍 Center the footer text */
+  width: 100%; /* 📏 Make it stretch across */
 }
 
 .auth-footer p {
-  margin: 0;
-  color: var(--neutral-600); /* Lighter text */
+  margin: 0; /* 🚫 No margin around the text */
+  color: var(--neutral-600); /* 🎨 Light gray text */
 }
 
 /* ========== Spinner for Loading State ========== */
 mat-spinner {
-  margin-right: var(--spacing-2); /* Space beside text when shown inline */
+  margin-right: var(--spacing-2); /* ↔️ Space between spinner and other things */
 }

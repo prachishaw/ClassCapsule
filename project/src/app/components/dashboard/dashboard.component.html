@@ -1,81 +1,107 @@
 <div class="dashboard">
+  <!-- This is the main dashboard area -->
+
   <div class="dashboard-header">
-    <h1>{{getDashboardTitle()}}</h1>
-    <p>{{getDashboardSubtitle()}}</p>
+    <!-- Header section with title and subtitle -->
+    <h1>{{getDashboardTitle()}}</h1> <!-- This shows the main title -->
+    <p>{{getDashboardSubtitle()}}</p> <!-- This shows the subtitle or description -->
   </div>
 
   <div class="stats-grid">
+    <!-- A grid showing summary cards -->
+
+    <!-- First stat card: Total Courses -->
     <div class="stat-card animate-fade-in">
       <div class="stat-content">
-        <div class="stat-value">{{ totalCourses }}</div>
-        <div class="stat-label">Active Courses</div>
+        <div class="stat-value">{{ totalCourses }}</div> <!-- Shows number of active courses -->
+        <div class="stat-label">Active Courses</div> <!-- Label for the number -->
       </div>
-      <div class="stat-icon courses">📚</div>
+      <div class="stat-icon courses">📚</div> <!-- Icon for courses -->
     </div>
 
+    <!-- Second stat card: Total Students -->
     <div class="stat-card animate-fade-in">
       <div class="stat-content">
-        <div class="stat-value">{{ totalStudents }}</div>
-        <div class="stat-label">Total Students</div>
+        <div class="stat-value">{{ totalStudents }}</div> <!-- Shows number of students -->
+        <div class="stat-label">Total Students</div> <!-- Label for the number -->
       </div>
-      <div class="stat-icon students">👥</div>
+      <div class="stat-icon students">👥</div> <!-- Icon for students -->
     </div>
 
+    <!-- Third stat card: Pending Assignments -->
     <div class="stat-card animate-fade-in">
       <div class="stat-content">
-        <div class="stat-value">{{ pendingAssignments }}</div>
-        <div class="stat-label">Pending Assignments</div>
+        <div class="stat-value">{{ pendingAssignments }}</div> <!-- Number of assignments to be done -->
+        <div class="stat-label">Pending Assignments</div> <!-- Label -->
       </div>
-      <div class="stat-icon assignments">📝</div>
+      <div class="stat-icon assignments">📝</div> <!-- Icon -->
     </div>
 
+    <!-- Fourth stat card: Average Progress -->
     <div class="stat-card animate-fade-in">
       <div class="stat-content">
-        <div class="stat-value">{{ averageProgress }}%</div>
-        <div class="stat-label">Average Progress</div>
+        <div class="stat-value">{{ averageProgress }}%</div> <!-- Shows how far students have progressed -->
+        <div class="stat-label">Average Progress</div> <!-- Label -->
       </div>
-      <div class="stat-icon progress">📊</div>
+      <div class="stat-icon progress">📊</div> <!-- Icon -->
     </div>
   </div>
 
   <div class="content-grid">
+    <!-- This section has two parts: left for courses, right for assignments -->
+
     <div class="courses-section">
+      <!-- Courses area -->
+
       <div class="section-header">
-        <h2>Your Courses</h2>
+        <h2>Your Courses</h2> <!-- Title -->
         <button mat-raised-button color="primary">
-          <mat-icon>visibility</mat-icon>
-          View All
+          <mat-icon>visibility</mat-icon> <!-- Icon for button -->
+          View All <!-- Button text -->
         </button>
       </div>
+
       <div class="courses-grid">
+        <!-- A grid showing course cards -->
+
+        <!-- Loop through 4 courses and show each one -->
         <mat-card *ngFor="let course of courses.slice(0, 4)" class="course-card animate-fade-in">
+
           <div class="course-header">
-            <div class="course-color" [style.background-color]="course.color"></div>
+            <div class="course-color" [style.background-color]="course.color"></div> <!-- Colored line -->
             <div class="course-info">
-              <h3>{{ course.title }}</h3>
-              <p>{{ course.instructor }}</p>
+              <h3>{{ course.title }}</h3> <!-- Course title -->
+              <p>{{ course.instructor }}</p> <!-- Instructor name -->
             </div>
           </div>
+
           <div class="course-stats">
+            <!-- Course details -->
             <div class="stat">
-              <span class="stat-number">{{ course.studentsCount }}</span>
+              <span class="stat-number">{{ course.studentsCount }}</span> <!-- How many students -->
               <span class="stat-text">Students</span>
             </div>
             <div class="stat">
-              <span class="stat-number">{{ course.assignments }}</span>
+              <span class="stat-number">{{ course.assignments }}</span> <!-- How many assignments -->
               <span class="stat-text">Assignments</span>
             </div>
           </div>
+
           <div class="progress-section">
+            <!-- Progress bar -->
             <div class="progress-label">
               <span>Progress</span>
-              <span>{{ course.progress }}%</span>
+              <span>{{ course.progress }}%</span> <!-- Show progress percent -->
             </div>
             <div class="progress-bar">
-              <div class="progress-fill" [style.width.%]="course.progress" [style.background-color]="course.color"></div>
+              <div class="progress-fill"
+                   [style.width.%]="course.progress"
+                   [style.background-color]="course.color"></div> <!-- Fill the bar with course progress -->
             </div>
           </div>
+
           <div *ngIf="course.nextClass" class="next-class">
+            <!-- Shows next class time if available -->
             <span class="next-class-label">Next Class:</span>
             <span class="next-class-time">{{ formatNextClass(course.nextClass) }}</span>
           </div>
@@ -84,26 +110,38 @@
     </div>
 
     <div class="assignments-section">
+      <!-- Right section: assignments -->
+
       <div class="section-header">
-        <h2>Recent Assignments</h2>
+        <h2>Recent Assignments</h2> <!-- Title -->
         <button mat-stroked-button color="primary">
-          <mat-icon>assignment</mat-icon>
-          View All
+          <mat-icon>assignment</mat-icon> <!-- Button icon -->
+          View All <!-- Button text -->
         </button>
       </div>
+
       <div class="assignments-list">
+        <!-- List of recent assignments -->
+
+        <!-- Loop through assignments -->
         <mat-card *ngFor="let assignment of recentAssignments" class="assignment-item animate-fade-in">
           <div class="assignment-content">
-            <h4>{{ assignment.title }}</h4>
-            <p>{{ getCourseTitle(assignment.courseId) }}</p>
+            <h4>{{ assignment.title }}</h4> <!-- Assignment name -->
+            <p>{{ getCourseTitle(assignment.courseId) }}</p> <!-- Course name for the assignment -->
+
             <div class="assignment-meta">
-              <span class="due-date">Due: {{ formatDate(assignment.dueDate) }}</span>
-              <span class="status" [class]="'status-' + assignment.status">{{ assignment.status }}</span>
+              <!-- Extra info about the assignment -->
+              <span class="due-date">Due: {{ formatDate(assignment.dueDate) }}</span> <!-- Due date -->
+              <span class="status" [class]="'status-' + assignment.status">
+                {{ assignment.status }}
+              </span> <!-- Shows if it's pending, submitted or graded -->
             </div>
           </div>
+
           <div *ngIf="assignment.status === 'graded'" class="assignment-grade">
+            <!-- If the assignment is graded, show the grade -->
             <span class="grade-value">{{ assignment.grade }}</span>
-            <span class="grade-label">/ 100</span>
+            <span class="grade-label">/ 100</span> <!-- Out of 100 -->
           </div>
         </mat-card>
       </div>

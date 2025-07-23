@@ -1,65 +1,92 @@
+<!-- Main container for the Courses page -->
 <div class="courses-page">
+
+  <!-- Top header section of the page -->
   <div class="page-header">
     <div>
+      <!-- Main title of the page -->
       <h1>My Courses</h1>
+      <!-- Small description below the title -->
       <p>Manage and track your educational content</p>
     </div>
+    
+    <!-- Button to create a new course -->
     <button mat-raised-button color="primary">
-      <mat-icon>add</mat-icon>
-      Create New Course
+      <mat-icon>add</mat-icon> <!-- Plus icon inside the button -->
+      Create New Course <!-- Text on the button -->
     </button>
   </div>
 
+  <!-- Section for search and filter buttons -->
   <div class="filters-section">
+    
+    <!-- Search input box for finding courses -->
     <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Search courses</mat-label>
-      <input matInput placeholder="Search courses...">
-      <mat-icon matSuffix>search</mat-icon>
+      <mat-label>Search courses</mat-label> <!-- Label above input -->
+      <input matInput placeholder="Search courses..."> <!-- Where you type -->
+      <mat-icon matSuffix>search</mat-icon> <!-- Search icon at the end -->
     </mat-form-field>
+
+    <!-- Buttons to filter the course list -->
     <div class="filter-buttons">
-      <button mat-raised-button color="primary" class="filter-btn">All Courses</button>
-      <button mat-stroked-button color="primary" class="filter-btn">In Progress</button>
-      <button mat-stroked-button color="primary" class="filter-btn">Completed</button>
+      <button mat-raised-button color="primary" class="filter-btn">All Courses</button> <!-- Show all courses -->
+      <button mat-stroked-button color="primary" class="filter-btn">In Progress</button> <!-- Show only ongoing courses -->
+      <button mat-stroked-button color="primary" class="filter-btn">Completed</button> <!-- Show finished courses -->
     </div>
   </div>
 
+  <!-- Grid layout to show all courses -->
   <div class="courses-grid">
+    
+    <!-- Loop through each course in the list -->
     <mat-card *ngFor="let course of courses" class="course-card animate-fade-in">
+      
+      <!-- Top part with background color and subject icon -->
       <div class="course-image" [style.background]="course.color">
         <div class="course-overlay">
+          <!-- Show subject icon or emoji based on course title -->
           <span class="course-subject">{{ getSubjectIcon(course.title) }}</span>
         </div>
       </div>
-      
+
+      <!-- All the details of the course go here -->
       <div class="course-content">
+
+        <!-- Header part with title and menu -->
         <div class="course-header">
-          <h3>{{ course.title }}</h3>
-          <div class="course-menu">⋯</div>
-        </div>
-        
-        <p class="course-description">{{ course.description }}</p>
-        
-        <div class="course-instructor">
-          <span class="instructor-label">Instructor:</span>
-          <span class="instructor-name">{{ course.instructor }}</span>
+          <h3>{{ course.title }}</h3> <!-- Course name -->
+          <div class="course-menu">⋯</div> <!-- Menu dots -->
         </div>
 
+        <!-- Small paragraph describing the course -->
+        <p class="course-description">{{ course.description }}</p>
+
+        <!-- Information about the instructor/teacher -->
+        <div class="course-instructor">
+          <span class="instructor-label">Instructor:</span> <!-- Label -->
+          <span class="instructor-name">{{ course.instructor }}</span> <!-- Name of instructor -->
+        </div>
+
+        <!-- Stats like how many students and assignments -->
         <div class="course-stats">
           <div class="stat">
-            <span class="stat-icon">👥</span>
-            <span>{{ course.studentsCount }} students</span>
+            <span class="stat-icon">👥</span> <!-- People icon -->
+            <span>{{ course.studentsCount }} students</span> <!-- Total students -->
           </div>
           <div class="stat">
-            <span class="stat-icon">📝</span>
-            <span>{{ course.assignments }} assignments</span>
+            <span class="stat-icon">📝</span> <!-- Assignment icon -->
+            <span>{{ course.assignments }} assignments</span> <!-- Total assignments -->
           </div>
         </div>
 
+        <!-- Progress bar to show how much course is done -->
         <div class="progress-section">
           <div class="progress-header">
-            <span class="progress-label">Course Progress</span>
-            <span class="progress-value">{{ course.progress }}%</span>
+            <span class="progress-label">Course Progress</span> <!-- Label -->
+            <span class="progress-value">{{ course.progress }}%</span> <!-- Percentage -->
           </div>
+
+          <!-- Bar that shows the progress visually -->
           <div class="progress-bar">
             <div class="progress-fill" 
                  [style.width.%]="course.progress" 
@@ -68,17 +95,22 @@
           </div>
         </div>
 
+        <!-- Buttons for viewing or continuing the course -->
         <div class="course-actions">
           <button mat-stroked-button color="primary">
-            <mat-icon>visibility</mat-icon>
-            View Details
+            <mat-icon>visibility</mat-icon> <!-- Eye icon -->
+            View Details <!-- Button text -->
           </button>
           <button mat-raised-button color="primary">
-            <mat-icon>play_arrow</mat-icon>
-            Continue
+            <mat-icon>play_arrow</mat-icon> <!-- Play icon -->
+            Continue <!-- Button text -->
           </button>
         </div>
-      </div>
-    </mat-card>
-  </div>
-</div>
+
+      </div> <!-- End of course-content -->
+      
+    </mat-card> <!-- End of single course card -->
+    
+  </div> <!-- End of course grid -->
+
+</div> <!-- End of main courses page -->

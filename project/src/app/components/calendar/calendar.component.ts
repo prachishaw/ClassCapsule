@@ -1,42 +1,43 @@
-// Angular core and common module imports
+// Importing basic Angular features
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// Angular Material UI modules
+// Importing UI components from Angular Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
-// Custom services and models
+// Importing our own service and data model
 import { DataService } from '../../services/data.service';
 import { Course } from '../../models/course.model';
 
-// Interface for a calendar event
+// This interface defines what one calendar event looks like
 interface CalendarEvent {
   id: string;
-  title: string;
-  date: Date;
-  time: string;
-  duration: number;
-  courseId: string;
-  color: string;
-  type: 'class' | 'assignment' | 'exam' | 'meeting';
+  title: string;      // Name of the event (like a class or exam)
+  date: Date;         // When the event happens
+  time: string;       // Time of the event
+  duration: number;   // How long it lasts (in minutes)
+  courseId: string;   // Which course it belongs to
+  color: string;      // Color used to display it
+  type: 'class' | 'assignment' | 'exam' | 'meeting'; // What kind of event it is
 }
 
-// Interface representing each day on the calendar
+// This interface defines each day on the calendar
 interface CalendarDay {
   date: Date;
-  isCurrentMonth: boolean;
-  isToday: boolean;
-  isSelected: boolean;
-  events: CalendarEvent[];
+  isCurrentMonth: boolean; // Is it from the same month we're viewing?
+  isToday: boolean;        // Is it today?
+  isSelected: boolean;     // Is it selected by the user?
+  events: CalendarEvent[]; // What events are on this day
 }
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
+  // Modules this component will use
   imports: [
     CommonModule,
     MatButtonModule,
@@ -49,53 +50,54 @@ interface CalendarDay {
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  // Controls the current view (month/week/day)
+  // Shows which view is selected: month, week, or day
   currentView: 'month' | 'week' | 'day' = 'month';
 
-  // Current date being viewed
+  // Stores today's date or the date currently being viewed
   currentDate = new Date();
 
-  // Selected course (for filtering)
+  // The selected course for filtering events
   selectedCourse = '';
 
-  // List of courses retrieved from the service
+  // List of courses from the backend or service
   courses: Course[] = [];
 
-  // All calendar events (classes, meetings, etc.)
+  // All events like classes, meetings, exams, etc.
   events: CalendarEvent[] = [];
 
-  // Array of weeks in the month view
+  // This will hold the calendar days, grouped by weeks
   calendarWeeks: CalendarDay[][] = [];
 
-  // Days of the current week (used in week/day view)
+  // Stores the current week’s days (used in week view)
   currentWeekDays: any[] = [];
 
-  // Upcoming events to show in the sidebar or summary
+  // Stores upcoming events (used in the sidebar)
   upcomingEvents: CalendarEvent[] = [];
 
-  // Days of the week for display
+  // Names of the week (used for display)
   weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-  // Time slots for day/week view layout
+  // Time slots shown in week/day view
   timeSlots = [
     '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
     '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM'
   ];
 
-  // Inject the data service
+  // We bring in the DataService so we can load courses and events
   constructor(private dataService: DataService) {}
 
-  // Lifecycle hook: fetch data and initialize calendar
+  // When the component is ready, run this
   ngOnInit() {
+    // Get all courses
     this.dataService.getCourses().subscribe(courses => {
       this.courses = courses;
-      this.generateSampleEvents();     // Add example events
-      this.generateCalendar();         // Build calendar grid
-      this.generateUpcomingEvents();   // Get next few events
+      this.generateSampleEvents();     // Add some sample events
+      this.generateCalendar();         // Build the calendar days
+      this.generateUpcomingEvents();   // Show the next few upcoming events
     });
   }
 
-  // Create example events manually (hardcoded)
+  // This creates some fake events just for testing
   generateSampleEvents() {
     const today = new Date();
     const year = today.getFullYear();
@@ -155,32 +157,37 @@ export class CalendarComponent implements OnInit {
       {
         id: '6',
         title: "Prachi's Birthday! 🎂 ",
-        date: new Date(year, 7, 10), // 🎉 Adjust this to your actual birthday
+        date: new Date(year, 7, 10),
         time: 'All Day',
         duration: 0,
         courseId: '',
         color: '#FF69B4',
-        type: 'meeting' // or 'event'
+        type: 'meeting'
       }
     ];
   }
 
-  // Build the calendar grid based on the current date
+  // This function creates a calendar grid with weeks and days
   generateCalendar() {
     const year = this.currentDate.getFullYear();
     const month = this.currentDate.getMonth();
 
+    // Get the first day of the current month
     const firstDay = new Date(year, month, 1);
+
+    // Start the calendar from the Sunday before the first day of the month
     const startDate = new Date(firstDay);
-    startDate.setDate(startDate.getDate() - firstDay.getDay()); // Backtrack to Sunday
+    startDate.setDate(startDate.getDate() - firstDay.getDay());
 
     this.calendarWeeks = [];
     let currentWeek: CalendarDay[] = [];
 
-    for (let i = 0; i < 42; i++) { // 6 weeks x 7 days
+    // Loop for 6 weeks (6 x 7 = 42 days)
+    for (let i = 0; i < 42; i++) {
       const date = new Date(startDate);
       date.setDate(startDate.getDate() + i);
 
+      // Find events for this day
       const dayEvents = this.events.filter(event =>
         event.date.toDateString() === date.toDateString()
       );
@@ -195,6 +202,7 @@ export class CalendarComponent implements OnInit {
 
       currentWeek.push(calendarDay);
 
+      // After 7 days, start a new week
       if (currentWeek.length === 7) {
         this.calendarWeeks.push(currentWeek);
         currentWeek = [];
@@ -202,16 +210,16 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-  // Get next 5 upcoming events sorted by date
+  // Find the next 5 upcoming events
   generateUpcomingEvents() {
     const today = new Date();
     this.upcomingEvents = this.events
-      .filter(event => event.date >= today)
-      .sort((a, b) => a.date.getTime() - b.date.getTime())
-      .slice(0, 5);
+      .filter(event => event.date >= today) // Only future events
+      .sort((a, b) => a.date.getTime() - b.date.getTime()) // Sort by date
+      .slice(0, 5); // Only take 5
   }
 
-  // Format the header title depending on the view
+  // Get the calendar title (like "July 2025" or "July 1 - July 7")
   getCurrentPeriodTitle(): string {
     if (this.currentView === 'month') {
       return this.currentDate.toLocaleDateString('en-US', {
@@ -234,7 +242,7 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-  // Go to previous month/week/day
+  // Move calendar to previous month/week/day
   previousPeriod() {
     if (this.currentView === 'month') {
       this.currentDate.setMonth(this.currentDate.getMonth() - 1);
@@ -246,7 +254,7 @@ export class CalendarComponent implements OnInit {
     this.generateCalendar();
   }
 
-  // Go to next month/week/day
+  // Move calendar to next month/week/day
   nextPeriod() {
     if (this.currentView === 'month') {
       this.currentDate.setMonth(this.currentDate.getMonth() + 1);
@@ -258,13 +266,13 @@ export class CalendarComponent implements OnInit {
     this.generateCalendar();
   }
 
-  // Find course title by ID
+  // Find the course name by its ID
   getCourseTitle(courseId: string): string {
     const course = this.courses.find(c => c.id === courseId);
     return course ? course.title : 'Unknown Course';
   }
 
-  // Create human-friendly date string for an event
+  // Show the date as "Today", "Tomorrow", or a short date
   formatEventDate(date: Date): string {
     const today = new Date();
     const diffTime = date.getTime() - today.getTime();
@@ -280,16 +288,16 @@ export class CalendarComponent implements OnInit {
     });
   }
 
-  // Calculate the top position of the event in the UI (based on time)
+  // Figure out how far from the top to place an event (like 2 PM → lower down)
   getEventTop(time: string): number {
     const hour = parseInt(time.split(':')[0]);
     const isPM = time.includes('PM');
     const adjustedHour = isPM && hour !== 12 ? hour + 12 : hour;
-    return (adjustedHour - 8) * 60; // Layout starts at 8 AM
+    return (adjustedHour - 8) * 60; // Start from 8 AM, 1 hour = 60px
   }
 
-  // Set height of event block based on duration
+  // Set how tall the event block should be (1 min = 1 pixel)
   getEventHeight(duration: number): number {
-    return duration; // 1 minute = 1px height
+    return duration;
   }
 }

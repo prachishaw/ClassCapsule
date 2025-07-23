@@ -1,45 +1,55 @@
-<!-- Root container for the assignments page -->
+<!-- 🧱 This is the main box that holds the entire assignments page -->
 <div class="assignments-page">
 
-  <!-- Page header: title, description, and Create Assignment button -->
+  <!-- 🧢 Top part of the page: shows the title, description, and add button -->
   <div class="page-header">
     <div>
+      <!-- 📘 Big heading for the page -->
       <h1>Assignments</h1>
+
+      <!-- 📄 Small line telling what this page is about -->
       <p>Track and manage all course assignments</p>
     </div>
 
-    <!-- Button to create a new assignment -->
+    <!-- ➕ Button to add a brand new assignment -->
     <button mat-raised-button color="primary">
       <mat-icon>add</mat-icon>
       Create Assignment
     </button>
   </div>
 
-  <!-- Tabs to filter assignments by status -->
+  <!-- 🧭 Tabs used to filter assignments by type (like a filter) -->
   <div class="assignments-tabs">
-    <!-- Default view showing all assignments -->
+    <!-- 🟢 Button that shows all the assignments together -->
     <button mat-raised-button color="primary">All Assignments</button>
 
-    <!-- Other status filters -->
+    <!-- 🟡 Button that shows only pending assignments -->
     <button mat-stroked-button color="primary">Pending</button>
+
+    <!-- 🔵 Button that shows only submitted assignments -->
     <button mat-stroked-button color="primary">Submitted</button>
+
+    <!-- 🟣 Button that shows only graded assignments -->
     <button mat-stroked-button color="primary">Graded</button>
   </div>
 
-  <!-- Dynamic list of assignment cards -->
+  <!-- 📦 This part shows a list of assignment cards (like boxes with info) -->
   <div class="assignments-list">
-    <!-- Loop through each assignment object -->
+
+    <!-- 🔁 For each assignment in the list, show a card -->
     <mat-card 
       *ngFor="let assignment of assignments" 
       class="assignment-card animate-fade-in"
     >
-      <!-- Assignment header: title and status -->
+    
+      <!-- 🎯 Top part of each card: shows title and current status -->
       <div class="assignment-header">
         <div class="assignment-title">
-          <!-- Assignment title -->
+
+          <!-- 📝 Shows the name/title of the assignment -->
           <h3>{{ assignment.title }}</h3>
 
-          <!-- Course chip with dynamic color -->
+          <!-- 🎓 Shows the course name with a colored tag -->
           <mat-chip 
             [style.background-color]="getCourseColor(assignment.courseId)" 
             class="course-chip"
@@ -48,7 +58,7 @@
           </mat-chip>
         </div>
 
-        <!-- Assignment status chip (Pending, Submitted, Graded) -->
+        <!-- 🚦 Shows the assignment's status (like pending, submitted, etc.) -->
         <div class="assignment-status">
           <mat-chip [class]="'status-' + assignment.status">
             {{ assignment.status }}
@@ -56,9 +66,10 @@
         </div>
       </div>
 
-      <!-- Assignment details like course name, due date, and grade -->
+      <!-- 🔍 This part shows extra details like course name, due date, and grade -->
       <div class="assignment-details">
-        <!-- Course title -->
+
+        <!-- 📚 Shows which course this assignment belongs to -->
         <div class="detail-item">
           <span class="detail-label">Course:</span>
           <span class="detail-value">
@@ -66,7 +77,7 @@
           </span>
         </div>
 
-        <!-- Due date with overdue check -->
+        <!-- 📅 Shows when the assignment is due. Turns red if it's overdue -->
         <div class="detail-item">
           <span class="detail-label">Due Date:</span>
           <span 
@@ -77,7 +88,7 @@
           </span>
         </div>
 
-        <!-- Grade display if available -->
+        <!-- 🏆 Shows the grade if it's already given -->
         <div *ngIf="assignment.grade" class="detail-item">
           <span class="detail-label">Grade:</span>
           <span class="detail-value grade">
@@ -86,9 +97,10 @@
         </div>
       </div>
 
-      <!-- Action buttons: Submit, View Details, Download -->
+      <!-- 🧰 Action buttons: things a user can do with this assignment -->
       <div class="assignment-actions">
-        <!-- Submit button shown only if status is 'pending' -->
+
+        <!-- ⬆️ This button lets you submit the assignment (only if it's pending) -->
         <button 
           *ngIf="assignment.status === 'pending'" 
           mat-raised-button 
@@ -99,13 +111,13 @@
           Submit Assignment
         </button>
 
-        <!-- View details button -->
+        <!-- 👁️ Lets the user open the full details of the assignment -->
         <button mat-stroked-button color="primary">
           <mat-icon>visibility</mat-icon>
           View Details
         </button>
 
-        <!-- Download button -->
+        <!-- 📥 Lets the user download the assignment file -->
         <button mat-stroked-button color="primary">
           <mat-icon>download</mat-icon>
           Download

@@ -1,129 +1,129 @@
-/* Container for the entire authentication page layout */
+/* This styles the outermost container for the login/signup page */
 .auth-container {
-  min-height: 100vh; /* Full height */
-  display: flex; /* Flex layout */
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
-  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%); /* Gradient background */
-  padding: var(--spacing-4); /* Outer padding */
+  min-height: 100vh; /* Make it as tall as the full screen */
+  display: flex; /* Use flex layout to arrange items */
+  align-items: center; /* Put items in the center vertically */
+  justify-content: center; /* Put items in the center horizontally */
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%); /* Add a nice color gradient background */
+  padding: var(--spacing-4); /* Add space inside the container */
 }
 
-/* Card element for login/signup form */
+/* This is the box (card) that holds the login or signup form */
 .auth-card {
-  width: 100%; /* Take full width */
-  max-width: 400px; /* Limit maximum width */
-  padding: var(--spacing-6); /* Inner padding */
+  width: 100%; /* Make the card take full available width */
+  max-width: 400px; /* But don’t let it get wider than 400px */
+  padding: var(--spacing-6); /* Add space inside the card */
 }
 
-/* Header section inside the auth card */
+/* This styles the top part of the card with heading and text */
 .auth-header {
-  text-align: center; /* Center align text */
-  margin-bottom: var(--spacing-6); /* Space below header */
+  text-align: center; /* Put the text in the middle */
+  margin-bottom: var(--spacing-6); /* Add space below the header */
 }
 
-/* Logo container with icon and text */
+/* This styles the logo section (icon + text) */
 .logo {
-  display: flex; /* Flex layout */
-  align-items: center; /* Vertically align */
-  justify-content: center; /* Center horizontally */
-  gap: var(--spacing-3); /* Space between icon and text */
-  margin-bottom: var(--spacing-4); /* Space below logo */
+  display: flex; /* Put items in a row */
+  align-items: center; /* Align items in the center vertically */
+  justify-content: center; /* Center everything horizontally */
+  gap: var(--spacing-3); /* Add space between icon and text */
+  margin-bottom: var(--spacing-4); /* Add space below the logo */
 }
 
-/* Icon part of the logo */
+/* This styles the round logo icon */
 .logo-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* Gradient */
-  border-radius: var(--radius-lg); /* Rounded corners */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 1.5rem; /* Font size for icon text */
+  width: 50px; /* Width of the icon box */
+  height: 50px; /* Height of the icon box */
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* Nice gradient background */
+  border-radius: var(--radius-lg); /* Make corners rounded */
+  display: flex; /* Flex layout to center content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  color: white; /* Text color white */
+  font-weight: 700; /* Bold text */
+  font-size: 1.5rem; /* Medium-big text size */
 }
 
-/* Text part of the logo */
+/* This is the text next to the logo icon */
 .logo-text {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--neutral-800);
+  font-size: 1.75rem; /* A bit bigger text size */
+  font-weight: 700; /* Bold text */
+  color: var(--neutral-800); /* Dark gray color */
 }
 
-/* Heading text inside auth header */
+/* This styles the heading inside the top header */
 .auth-header h2 {
   margin-bottom: var(--spacing-2); /* Space below heading */
-  color: var(--neutral-800);
+  color: var(--neutral-800); /* Dark gray color */
 }
 
-/* Paragraph text inside auth header */
+/* This styles the small paragraph under the heading */
 .auth-header p {
-  color: var(--neutral-600);
-  margin: 0;
+  color: var(--neutral-600); /* Lighter gray color */
+  margin: 0; /* Remove any default margin */
 }
 
-/* Utility class to make elements full width with margin bottom */
+/* This makes any element stretch full width with space below */
 .full-width {
-  width: 100%;
-  margin-bottom: var(--spacing-4);
+  width: 100%; /* Take up all available width */
+  margin-bottom: var(--spacing-4); /* Add space at the bottom */
 }
 
-/* Button styling */
+/* This styles the button */
 .auth-button {
-  height: 48px;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: var(--spacing-4);
+  height: 48px; /* Make button tall enough */
+  font-size: 1rem; /* Normal readable text */
+  font-weight: 600; /* Make button text slightly bold */
+  margin-top: var(--spacing-4); /* Add space above the button */
 }
 
-/* Footer section in auth page */
+/* This styles the bottom section of the auth card */
 .auth-footer {
-  text-align: center;
-  width: 100%;
+  text-align: center; /* Center the text */
+  width: 100%; /* Stretch full width */
 }
 
-/* Text inside footer */
+/* This styles the text inside the footer */
 .auth-footer p {
-  margin: 0;
-  color: var(--neutral-600);
+  margin: 0; /* No extra space */
+  color: var(--neutral-600); /* Light gray color */
 }
 
-/* Spinner element with right margin */
+/* This adds space to the right of the loading spinner */
 mat-spinner {
-  margin-right: var(--spacing-2);
+  margin-right: var(--spacing-2); /* Space on the right side */
 }
 
-/* Container for each user role option */
+/* This styles the row for each user role (like Teacher/Student) */
 .role-option {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
-  padding: var(--spacing-2) 0;
+  display: flex; /* Items in a row */
+  align-items: center; /* Vertically centered */
+  gap: var(--spacing-3); /* Space between items */
+  padding: var(--spacing-2) 0; /* Top & bottom space */
 }
 
-/* Icon representing a role */
+/* This styles the icon next to a role option */
 .role-icon {
-  font-size: 1.5rem;
-  width: 32px;
-  text-align: center;
+  font-size: 1.5rem; /* Medium-big icon size */
+  width: 32px; /* Set a fixed width */
+  text-align: center; /* Center the icon */
 }
 
-/* Container for role title and description */
+/* This holds the role title and its description */
 .role-info {
-  display: flex;
-  flex-direction: column;
+  display: flex; /* Use flex layout */
+  flex-direction: column; /* Stack items vertically */
 }
 
-/* Role title text */
+/* This styles the role name like “Student” or “Teacher” */
 .role-title {
-  font-weight: 600;
-  color: var(--neutral-800);
+  font-weight: 600; /* Slightly bold */
+  color: var(--neutral-800); /* Dark color */
 }
 
-/* Role description text */
+/* This styles the short explanation under the role name */
 .role-description {
-  font-size: 0.875rem;
-  color: var(--neutral-600);
-  margin-top: 2px;
+  font-size: 0.875rem; /* Smaller text */
+  color: var(--neutral-600); /* Light gray */
+  margin-top: 2px; /* Small space above */
 }

@@ -1,87 +1,103 @@
+/* Container for the whole course page with padding */
 .courses-page {
   padding: var(--spacing-8);
 }
 
+/* Header section: title and description */
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--spacing-8);
+  display: flex; /* Use flex layout */
+  justify-content: space-between; /* Space out items left and right */
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: var(--spacing-8); /* Space below the header */
 }
 
+/* First child inside header gets full width */
 .page-header div:first-child {
   flex: 1;
 }
 
+/* Big heading text */
 .page-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-2);
-  color: var(--neutral-800);
+  font-size: 2.5rem; /* Large font size */
+  margin-bottom: var(--spacing-2); /* Space below the heading */
+  color: var(--neutral-800); /* Dark gray color */
 }
 
+/* Description text below heading */
 .page-header p {
-  color: var(--neutral-600);
-  font-size: 1.125rem;
+  color: var(--neutral-600); /* Lighter gray color */
+  font-size: 1.125rem; /* Slightly bigger text */
 }
 
+/* Section for filters like search and buttons */
 .filters-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacing-8);
-  gap: var(--spacing-6);
+  display: flex; /* Flex layout for filters */
+  justify-content: space-between; /* Spread filters apart */
+  align-items: center; /* Center filters vertically */
+  margin-bottom: var(--spacing-8); /* Space below filters */
+  gap: var(--spacing-6); /* Space between each filter */
 }
 
+/* Style for search input field */
 .search-field {
-  flex: 1;
-  max-width: 400px;
+  flex: 1; /* Take as much space as possible */
+  max-width: 400px; /* Don't go wider than 400px */
 }
 
+/* Group of filter buttons */
 .filter-buttons {
   display: flex;
-  gap: var(--spacing-2);
+  gap: var(--spacing-2); /* Space between buttons */
 }
 
+/* Grid layout for all course cards */
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: var(--spacing-6);
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); /* Responsive grid */
+  gap: var(--spacing-6); /* Space between cards */
 }
 
+/* Each course card box */
 .course-card {
-  overflow: hidden;
-  transition: all 0.3s ease;
+  overflow: hidden; /* Hide overflow content */
+  transition: all 0.3s ease; /* Smooth animation */
 }
 
+/* Lift card on hover and add shadow */
 .course-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px); /* Move up a bit */
+  box-shadow: var(--shadow-lg); /* Add shadow */
 }
 
+/* Top image of the course card */
 .course-image {
-  height: 120px;
-  position: relative;
-  background: linear-gradient(135deg, var(--primary-400), var(--primary-600));
+  height: 120px; /* Fixed height */
+  position: relative; /* Needed for overlay */
+  background: linear-gradient(135deg, var(--primary-400), var(--primary-600)); /* Gradient background */
 }
 
+/* Transparent overlay over the course image */
 .course-overlay {
   position: absolute;
-  inset: 0;
+  inset: 0; /* Stretch to cover the image */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1); /* Slightly dark transparent background */
 }
 
+/* Subject text shown over the image */
 .course-subject {
-  font-size: 2.5rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  font-size: 2.5rem; /* Big font */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* Shadow for better visibility */
 }
 
+/* Content part of the card below image */
 .course-content {
-  padding: var(--spacing-6);
+  padding: var(--spacing-6); /* Inside spacing */
 }
 
+/* Top row inside content: title and menu */
 .course-header {
   display: flex;
   justify-content: space-between;
@@ -89,51 +105,60 @@
   margin-bottom: var(--spacing-4);
 }
 
+/* Course title */
 .course-header h3 {
   font-size: 1.25rem;
-  color: var(--neutral-800);
+  color: var(--neutral-800); /* Dark gray */
   line-height: 1.3;
 }
 
+/* Dots menu icon on the card */
 .course-menu {
-  cursor: pointer;
+  cursor: pointer; /* Show pointer when hovered */
   padding: var(--spacing-1);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-sm); /* Small rounded corners */
   color: var(--neutral-400);
   transition: background-color 0.2s;
 }
 
+/* Change background on hover */
 .course-menu:hover {
   background-color: var(--neutral-100);
 }
 
+/* Short text describing the course */
 .course-description {
   color: var(--neutral-600);
   margin-bottom: var(--spacing-4);
   line-height: 1.5;
 }
 
+/* Instructor section */
 .course-instructor {
   margin-bottom: var(--spacing-5);
-  font-size: 0.875rem;
+  font-size: 0.875rem; /* Smaller font */
 }
 
+/* Label for instructor */
 .instructor-label {
   color: var(--neutral-500);
 }
 
+/* Instructor name */
 .instructor-name {
   color: var(--neutral-700);
   font-weight: 500;
-  margin-left: var(--spacing-1);
+  margin-left: var(--spacing-1); /* Small space to the left */
 }
 
+/* Stats section like lessons, students */
 .course-stats {
   display: flex;
   gap: var(--spacing-4);
   margin-bottom: var(--spacing-5);
 }
 
+/* Each individual stat */
 .stat {
   display: flex;
   align-items: center;
@@ -142,14 +167,17 @@
   color: var(--neutral-600);
 }
 
+/* Small icon beside stat */
 .stat-icon {
   font-size: 1rem;
 }
 
+/* Section for course progress bar */
 .progress-section {
   margin-bottom: var(--spacing-6);
 }
 
+/* Top row of progress: label and value */
 .progress-header {
   display: flex;
   justify-content: space-between;
@@ -157,69 +185,83 @@
   margin-bottom: var(--spacing-2);
 }
 
+/* Progress label like "Completed" */
 .progress-label {
   font-size: 0.875rem;
   color: var(--neutral-600);
   font-weight: 500;
 }
 
+/* Progress percent like "60%" */
 .progress-value {
   font-size: 0.875rem;
   color: var(--neutral-700);
   font-weight: 600;
 }
 
+/* Background of the progress bar */
 .progress-bar {
   height: 6px;
   background-color: var(--neutral-200);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  border-radius: var(--radius-md); /* Rounded edges */
+  overflow: hidden; /* Hide extra content */
 }
 
+/* Colored fill inside the progress bar */
 .progress-fill {
   height: 100%;
   transition: width 0.8s ease-out;
   border-radius: var(--radius-md);
 }
 
+/* Section with action buttons like "Join", "View" */
 .course-actions {
   display: flex;
   gap: var(--spacing-3);
 }
 
+/* Buttons inside the actions section */
 .course-actions button {
-  flex: 1;
+  flex: 1; /* Each button takes equal space */
 }
 
+/* Responsive styles for small screens */
 @media (max-width: 768px) {
+  /* Less padding on small screens */
   .courses-page {
     padding: var(--spacing-4);
   }
 
+  /* Stack header items vertically */
   .page-header {
     flex-direction: column;
     gap: var(--spacing-4);
     align-items: flex-start;
   }
 
+  /* Stack filter section vertically */
   .filters-section {
     flex-direction: column;
     align-items: stretch;
     gap: var(--spacing-4);
   }
 
+  /* Center filter buttons */
   .filter-buttons {
     justify-content: center;
   }
 
+  /* Only one column in course grid on mobile */
   .courses-grid {
     grid-template-columns: 1fr;
   }
 
+  /* Stack course buttons vertically */
   .course-actions {
     flex-direction: column;
   }
 
+  /* On mobile, buttons shouldn't stretch */
   .course-actions button {
     flex: none;
   }

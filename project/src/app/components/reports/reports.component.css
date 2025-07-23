@@ -1,97 +1,99 @@
 .reports-page {
-  padding: var(--spacing-8);
+  padding: var(--spacing-8); /* Adds space inside the page */
 }
 
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--spacing-8);
+  display: flex; /* Puts items in a row */
+  justify-content: space-between; /* Moves items to far left and right */
+  align-items: flex-start; /* Aligns items at the top */
+  margin-bottom: var(--spacing-8); /* Adds space below the header */
 }
 
 .page-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-2);
-  color: var(--neutral-800);
+  font-size: 2.5rem; /* Makes title big */
+  margin-bottom: var(--spacing-2); /* Adds space below the title */
+  color: var(--neutral-800); /* Sets text color */
 }
 
 .page-header p {
-  color: var(--neutral-600);
-  font-size: 1.125rem;
+  color: var(--neutral-600); /* Sets paragraph text color */
+  font-size: 1.125rem; /* Makes text a bit larger */
 }
 
 .header-actions {
-  display: flex;
-  gap: var(--spacing-3);
+  display: flex; /* Items side by side */
+  gap: var(--spacing-3); /* Space between buttons */
 }
 
 .reports-filters {
-  display: flex;
-  gap: var(--spacing-4);
-  margin-bottom: var(--spacing-8);
-  padding: var(--spacing-4);
-  background: white;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
+  display: flex; /* Row layout */
+  gap: var(--spacing-4); /* Space between filters */
+  margin-bottom: var(--spacing-8); /* Space below filters */
+  padding: var(--spacing-4); /* Inside spacing */
+  background: white; /* White background */
+  border-radius: var(--radius-xl); /* Rounded corners */
+  box-shadow: var(--shadow-sm); /* Light shadow */
 }
 
 .reports-overview {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-8); /* Space below this section */
 }
 
 .overview-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-6);
+  display: grid; /* Makes a grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts number of columns based on space */
+  gap: var(--spacing-6); /* Space between cards */
 }
 
 .overview-card {
-  display: flex;
-  align-items: center;
-  padding: var(--spacing-6) !important;
-  transition: all 0.3s ease;
+  display: flex; /* Puts icon and text side by side */
+  align-items: center; /* Centers items vertically */
+  padding: var(--spacing-6) !important; /* Adds padding */
+  transition: all 0.3s ease; /* Smooth hover animation */
 }
 
 .overview-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px); /* Moves card up a little */
+  box-shadow: var(--shadow-lg); /* Adds bigger shadow */
 }
 
 .card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius-lg);
-  display: flex;
+  width: 60px; /* Fixed width */
+  height: 60px; /* Fixed height */
+  border-radius: var(--radius-lg); /* Rounded shape */
+  display: flex; /* Centering content */
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  margin-right: var(--spacing-4);
+  font-size: 1.5rem; /* Makes emoji/icon bigger */
+  margin-right: var(--spacing-4); /* Space next to icon */
 }
 
+/* Different background colors for icons */
 .card-icon.students { background: var(--accent-100); }
 .card-icon.courses { background: var(--primary-100); }
 .card-icon.assignments { background: var(--secondary-100); }
 .card-icon.performance { background: var(--warning-100); }
 
 .card-content h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--neutral-800);
-  margin-bottom: var(--spacing-1);
+  font-size: 2rem; /* Large number */
+  font-weight: 700; /* Bold */
+  color: var(--neutral-800); /* Dark text */
+  margin-bottom: var(--spacing-1); /* Space below */
 }
 
 .card-content p {
-  color: var(--neutral-600);
-  margin-bottom: var(--spacing-2);
+  color: var(--neutral-600); /* Light gray text */
+  margin-bottom: var(--spacing-2); /* Adds space */
 }
 
 .trend {
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: var(--spacing-1) var(--spacing-2);
-  border-radius: var(--radius-sm);
+  font-size: 0.875rem; /* Small text */
+  font-weight: 500; /* Medium bold */
+  padding: var(--spacing-1) var(--spacing-2); /* Inside spacing */
+  border-radius: var(--radius-sm); /* Rounded */
 }
 
+/* Colors based on type of trend */
 .trend.positive {
   background: var(--accent-100);
   color: var(--accent-700);
@@ -109,56 +111,56 @@
 
 .reports-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-8);
-  margin-bottom: var(--spacing-8);
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: var(--spacing-8); /* Space between columns */
+  margin-bottom: var(--spacing-8); /* Space below section */
 }
 
 .charts-section {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-6);
+  flex-direction: column; /* Stack vertically */
+  gap: var(--spacing-6); /* Space between charts */
 }
 
 .chart-card {
-  padding: var(--spacing-6) !important;
+  padding: var(--spacing-6) !important; /* Padding inside */
 }
 
 .chart-placeholder {
-  height: 300px;
+  height: 300px; /* Set height */
   display: flex;
-  align-items: end;
-  justify-content: center;
-  padding: var(--spacing-4);
+  align-items: end; /* Align content to bottom */
+  justify-content: center; /* Center horizontally */
+  padding: var(--spacing-4); /* Inner spacing */
 }
 
 .chart-bars {
   display: flex;
   align-items: end;
-  gap: var(--spacing-4);
+  gap: var(--spacing-4); /* Space between bars */
   height: 100%;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-around; /* Spread out bars */
 }
 
 .bar {
-  background: linear-gradient(to top, var(--primary-500), var(--primary-300));
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: linear-gradient(to top, var(--primary-500), var(--primary-300)); /* Gradient color */
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0; /* Rounded top */
   width: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  transition: all 0.3s ease;
+  position: relative; /* Needed for labels */
+  transition: all 0.3s ease; /* Smooth hover */
 }
 
 .bar:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Make bigger on hover */
 }
 
 .bar-value {
   position: absolute;
-  top: -25px;
+  top: -25px; /* Place above the bar */
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--neutral-700);
@@ -166,7 +168,7 @@
 
 .bar-label {
   position: absolute;
-  bottom: -25px;
+  bottom: -25px; /* Place below the bar */
   font-size: 0.875rem;
   color: var(--neutral-600);
 }
@@ -203,7 +205,7 @@
   height: 8px;
   background: var(--neutral-200);
   border-radius: var(--radius-md);
-  overflow: hidden;
+  overflow: hidden; /* Keeps fill inside */
 }
 
 .progress-bar.small {
@@ -213,7 +215,7 @@
 
 .progress-fill {
   height: 100%;
-  transition: width 0.5s ease;
+  transition: width 0.5s ease; /* Smooth fill */
   border-radius: var(--radius-md);
 }
 
@@ -235,7 +237,7 @@
 
 .table-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Column sizes */
   gap: var(--spacing-4);
   padding: var(--spacing-3);
   background: var(--neutral-50);
@@ -263,7 +265,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: cover; /* Keeps image ratio */
 }
 
 .student-name {
@@ -281,6 +283,7 @@
   border-radius: var(--radius-sm);
 }
 
+/* Grade colors */
 .student-grade.excellent {
   background: var(--accent-100);
   color: var(--accent-700);
@@ -331,6 +334,7 @@
   color: white;
 }
 
+/* Icon colors */
 .activity-icon.submission {
   background: var(--primary-500);
 }
@@ -370,6 +374,7 @@
   font-weight: 500;
 }
 
+/* Status colors */
 .activity-status.completed {
   background: var(--accent-100);
   color: var(--accent-700);
@@ -396,16 +401,17 @@
 .export-options {
   display: flex;
   gap: var(--spacing-4);
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allows wrapping */
 }
 
+/* Mobile styles for small screens */
 @media (max-width: 768px) {
   .reports-page {
-    padding: var(--spacing-4);
+    padding: var(--spacing-4); /* Smaller padding on small screens */
   }
 
   .page-header {
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
     gap: var(--spacing-4);
     align-items: flex-start;
   }
@@ -416,16 +422,16 @@
   }
 
   .overview-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
   }
 
   .reports-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* One column layout */
   }
 
   .table-header,
   .table-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack table items */
     gap: var(--spacing-2);
   }
 

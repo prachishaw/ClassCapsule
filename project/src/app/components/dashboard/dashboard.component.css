@@ -1,134 +1,134 @@
 .dashboard {
-  padding: var(--spacing-8);
+  padding: var(--spacing-8); /* Adds space inside the dashboard */
 }
 
 .dashboard-header {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-8); /* Adds space below the header */
 }
 
 .dashboard-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-2);
-  color: var(--neutral-800);
+  font-size: 2.5rem; /* Makes the title big */
+  margin-bottom: var(--spacing-2); /* Adds space below the title */
+  color: var(--neutral-800); /* Sets text color */
 }
 
 .dashboard-header p {
-  color: var(--neutral-600);
-  font-size: 1.125rem;
+  color: var(--neutral-600); /* Lighter text color for description */
+  font-size: 1.125rem; /* Medium font size */
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-6);
-  margin-bottom: var(--spacing-8);
+  display: grid; /* Makes a grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts column size */
+  gap: var(--spacing-6); /* Adds space between items */
+  margin-bottom: var(--spacing-8); /* Adds space below the grid */
 }
 
 .stat-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-6);
-  background: white;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--neutral-100);
-  transition: all 0.3s ease;
+  display: flex; /* Places content in a row */
+  justify-content: space-between; /* Puts space between items */
+  align-items: center; /* Aligns items vertically */
+  padding: var(--spacing-6); /* Adds inner space */
+  background: white; /* White background */
+  border-radius: var(--radius-xl); /* Rounds corners */
+  box-shadow: var(--shadow-sm); /* Adds a little shadow */
+  border: 1px solid var(--neutral-100); /* Thin border */
+  transition: all 0.3s ease; /* Smooth effect when it changes */
 }
 
 .stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px); /* Moves up when hovered */
+  box-shadow: var(--shadow-lg); /* Bigger shadow when hovered */
 }
 
 .stat-value {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--neutral-800);
-  line-height: 1;
+  font-size: 2.5rem; /* Big number text */
+  font-weight: 700; /* Bold */
+  color: var(--neutral-800); /* Dark color */
+  line-height: 1; /* Tight spacing */
 }
 
 .stat-label {
-  color: var(--neutral-600);
-  font-weight: 500;
-  margin-top: var(--spacing-1);
+  color: var(--neutral-600); /* Light color */
+  font-weight: 500; /* Semi-bold */
+  margin-top: var(--spacing-1); /* Space above label */
 }
 
 .stat-icon {
-  width: 60px;
+  width: 60px; /* Icon size */
   height: 60px;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-lg); /* Round shape */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Icon size */
 }
 
-.stat-icon.courses { background: var(--primary-100); }
-.stat-icon.students { background: var(--accent-100); }
-.stat-icon.assignments { background: var(--secondary-100); }
-.stat-icon.progress { background: var(--warning-100); }
+.stat-icon.courses { background: var(--primary-100); } /* Blue background */
+.stat-icon.students { background: var(--accent-100); } /* Purple background */
+.stat-icon.assignments { background: var(--secondary-100); } /* Green background */
+.stat-icon.progress { background: var(--warning-100); } /* Yellow background */
 
 .content-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: var(--spacing-8);
+  grid-template-columns: 2fr 1fr; /* Left side 2x bigger than right */
+  gap: var(--spacing-8); /* Space between */
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-6); /* Space below section title */
 }
 
 .section-header h2 {
-  color: var(--neutral-800);
+  color: var(--neutral-800); /* Dark text */
 }
 
 .courses-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-6);
+  gap: var(--spacing-6); /* Space between course cards */
 }
 
 .course-card {
-  padding: var(--spacing-6) !important;
+  padding: var(--spacing-6) !important; /* Inner space in course card */
 }
 
 .course-header {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-4);
-  margin-bottom: var(--spacing-6);
+  gap: var(--spacing-4); /* Space between color and info */
+  margin-bottom: var(--spacing-6); /* Space below header */
 }
 
 .course-color {
   width: 12px;
   height: 60px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md); /* Rounded side bar */
 }
 
 .course-info h3 {
-  font-size: 1.25rem;
-  margin-bottom: var(--spacing-1);
+  font-size: 1.25rem; /* Title size */
+  margin-bottom: var(--spacing-1); /* Space below title */
   color: var(--neutral-800);
 }
 
 .course-info p {
-  color: var(--neutral-600);
+  color: var(--neutral-600); /* Description color */
 }
 
 .course-stats {
   display: flex;
-  gap: var(--spacing-6);
+  gap: var(--spacing-6); /* Space between each stat */
   margin-bottom: var(--spacing-6);
 }
 
 .stat {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Stack number and text */
+  align-items: center; /* Center them */
 }
 
 .stat-number {
@@ -143,7 +143,7 @@
 }
 
 .progress-section {
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-4); /* Space below progress bar */
 }
 
 .progress-label {
@@ -155,15 +155,15 @@
 }
 
 .progress-bar {
-  height: 8px;
-  background-color: var(--neutral-200);
+  height: 8px; /* Thickness of the bar */
+  background-color: var(--neutral-200); /* Light grey bar */
   border-radius: var(--radius-md);
-  overflow: hidden;
+  overflow: hidden; /* Keeps the fill inside */
 }
 
 .progress-fill {
   height: 100%;
-  transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out; /* Animates when changing */
 }
 
 .next-class {
@@ -184,7 +184,7 @@
 .assignments-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
+  gap: var(--spacing-4); /* Space between assignments */
 }
 
 .assignment-item {
@@ -219,27 +219,27 @@
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--radius-sm);
   font-weight: 500;
-  text-transform: capitalize;
+  text-transform: capitalize; /* Makes first letter big */
 }
 
 .status-pending {
-  background-color: var(--warning-100);
-  color: var(--warning-700);
+  background-color: var(--warning-100); /* Light yellow */
+  color: var(--warning-700); /* Darker yellow text */
 }
 
 .status-submitted {
-  background-color: var(--primary-100);
-  color: var(--primary-700);
+  background-color: var(--primary-100); /* Light blue */
+  color: var(--primary-700); /* Darker blue text */
 }
 
 .status-graded {
-  background-color: var(--accent-100);
-  color: var(--accent-700);
+  background-color: var(--accent-100); /* Light purple */
+  color: var(--accent-700); /* Dark purple text */
 }
 
 .assignment-grade {
   display: flex;
-  align-items: baseline;
+  align-items: baseline; /* Align number and label well */
   gap: var(--spacing-1);
 }
 
@@ -254,36 +254,37 @@
   font-size: 0.875rem;
 }
 
+/* Mobile responsive styles */
 @media (max-width: 768px) {
   .dashboard {
-    padding: var(--spacing-4);
+    padding: var(--spacing-4); /* Smaller padding for small screens */
   }
 
   .content-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Only one column */
     gap: var(--spacing-6);
   }
 
   .courses-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* One card per row */
   }
 
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
     gap: var(--spacing-4);
   }
 
   .stat-card {
-    padding: var(--spacing-4);
+    padding: var(--spacing-4); /* Less padding */
   }
 
   .stat-value {
-    font-size: 2rem;
+    font-size: 2rem; /* Smaller numbers */
   }
 
   .stat-icon {
     width: 50px;
     height: 50px;
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* Smaller icons */
   }
 }

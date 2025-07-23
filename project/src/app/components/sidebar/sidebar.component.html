@@ -99,7 +99,7 @@
 
   <div class="sidebar-footer">
     <div class="user-profile">
-      <img [src]="currentUser?.profileImage" alt="Profile" class="user-avatar" *ngIf="currentUser">
+      <img [src]="currentUser.profileImage" alt="Profile" class="user-avatar" *ngIf="currentUser">
       <div class="user-info">
         <div class="user-name">{{currentUser?.name || 'Guest'}}</div>
         <div class="user-role">{{getRoleDisplayName(currentUser?.role) || 'User'}}</div>

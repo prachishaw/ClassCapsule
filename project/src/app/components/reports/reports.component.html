@@ -1,14 +1,23 @@
+<!-- Main container for the Reports page -->
 <div class="reports-page">
+
+  <!-- Header section at the top of the page -->
   <div class="page-header">
     <div>
+      <!-- Title of the page -->
       <h1>Reports & Analytics</h1>
+      <!-- Short description under the title -->
       <p>Track performance and generate insights</p>
     </div>
+
+    <!-- Buttons on the right side of the header -->
     <div class="header-actions">
+      <!-- Button to download data -->
       <button mat-stroked-button color="primary">
         <mat-icon>download</mat-icon>
         Export Data
       </button>
+      <!-- Button to create a new report -->
       <button mat-raised-button color="primary">
         <mat-icon>add</mat-icon>
         Create Report
@@ -16,7 +25,9 @@
     </div>
   </div>
 
+  <!-- Filters to select time, course, and type of report -->
   <div class="reports-filters">
+    <!-- Dropdown to choose time period -->
     <mat-form-field appearance="outline">
       <mat-label>Time Period</mat-label>
       <mat-select [(value)]="selectedPeriod">
@@ -27,16 +38,19 @@
       </mat-select>
     </mat-form-field>
 
+    <!-- Dropdown to choose a specific course -->
     <mat-form-field appearance="outline">
       <mat-label>Course</mat-label>
       <mat-select [(value)]="selectedCourse">
         <mat-option value="">All Courses</mat-option>
+        <!-- Shows all available courses in a loop -->
         <mat-option *ngFor="let course of courses" [value]="course.id">
           {{ course.title }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
+    <!-- Dropdown to choose type of report -->
     <mat-form-field appearance="outline">
       <mat-label>Report Type</mat-label>
       <mat-select [(value)]="selectedReportType">
@@ -48,17 +62,21 @@
     </mat-form-field>
   </div>
 
+  <!-- Section that gives quick summary in cards -->
   <div class="reports-overview">
     <div class="overview-cards">
+      
+      <!-- Card showing total students -->
       <mat-card class="overview-card">
         <div class="card-icon students">👥</div>
         <div class="card-content">
-          <h3>{{ totalStudents }}</h3>
-          <p>Total Students</p>
-          <span class="trend positive">+12% from last month</span>
+          <h3>{{ totalStudents }}</h3> <!-- Shows number of students -->
+          <p>Total Students</p>         <!-- Label -->
+          <span class="trend positive">+12% from last month</span> <!-- Trend info -->
         </div>
       </mat-card>
 
+      <!-- Card showing active courses -->
       <mat-card class="overview-card">
         <div class="card-icon courses">📚</div>
         <div class="card-content">
@@ -68,6 +86,7 @@
         </div>
       </mat-card>
 
+      <!-- Card showing completed assignments -->
       <mat-card class="overview-card">
         <div class="card-icon assignments">📝</div>
         <div class="card-content">
@@ -77,6 +96,7 @@
         </div>
       </mat-card>
 
+      <!-- Card showing average grade -->
       <mat-card class="overview-card">
         <div class="card-icon performance">📊</div>
         <div class="card-content">
@@ -88,8 +108,13 @@
     </div>
   </div>
 
+  <!-- Section with charts and tables -->
   <div class="reports-content">
+
+    <!-- Charts area -->
     <div class="charts-section">
+
+      <!-- Chart card for student performance -->
       <mat-card class="chart-card">
         <mat-card-header>
           <mat-card-title>Student Performance Trends</mat-card-title>
@@ -97,7 +122,9 @@
         </mat-card-header>
         <mat-card-content>
           <div class="chart-placeholder">
+            <!-- Bar chart for months -->
             <div class="chart-bars">
+              <!-- Each bar shows performance for a month -->
               <div class="bar" style="height: 60%">
                 <span class="bar-value">75%</span>
                 <span class="bar-label">Jan</span>
@@ -123,6 +150,7 @@
         </mat-card-content>
       </mat-card>
 
+      <!-- Chart card for course completion -->
       <mat-card class="chart-card">
         <mat-card-header>
           <mat-card-title>Course Completion Rates</mat-card-title>
@@ -130,11 +158,14 @@
         </mat-card-header>
         <mat-card-content>
           <div class="progress-chart">
+            <!-- Show progress for each course in a loop -->
             <div class="progress-item" *ngFor="let course of courseProgress">
               <div class="progress-info">
+                <!-- Name and percentage -->
                 <span class="course-name">{{ course.name }}</span>
                 <span class="progress-value">{{ course.completion }}%</span>
               </div>
+              <!-- Bar showing completion -->
               <div class="progress-bar">
                 <div class="progress-fill" 
                      [style.width.%]="course.completion"
@@ -147,7 +178,10 @@
       </mat-card>
     </div>
 
+    <!-- Tables for students and activity -->
     <div class="tables-section">
+
+      <!-- Table showing top students -->
       <mat-card class="table-card">
         <mat-card-header>
           <mat-card-title>Top Performing Students</mat-card-title>
@@ -155,21 +189,27 @@
         </mat-card-header>
         <mat-card-content>
           <div class="students-table">
+            <!-- Header row for the table -->
             <div class="table-header">
               <span>Student</span>
               <span>Course</span>
               <span>Grade</span>
               <span>Progress</span>
             </div>
+            <!-- Each row shows a student's info -->
             <div class="table-row" *ngFor="let student of topStudents">
               <div class="student-info">
+                <!-- Student photo -->
                 <img [src]="student.avatar" alt="Avatar" class="student-avatar">
+                <!-- Student name -->
                 <span class="student-name">{{ student.name }}</span>
               </div>
               <span class="student-course">{{ student.course }}</span>
+              <!-- Grade with color class -->
               <span class="student-grade" [class]="getGradeClass(student.grade)">
                 {{ student.grade }}%
               </span>
+              <!-- Progress bar for student -->
               <div class="student-progress">
                 <div class="progress-bar small">
                   <div class="progress-fill" [style.width.%]="student.progress"></div>
@@ -181,6 +221,7 @@
         </mat-card-content>
       </mat-card>
 
+      <!-- Table showing recent activity -->
       <mat-card class="table-card">
         <mat-card-header>
           <mat-card-title>Recent Activity</mat-card-title>
@@ -188,15 +229,19 @@
         </mat-card-header>
         <mat-card-content>
           <div class="activity-list">
+            <!-- Each item is an activity log -->
             <div class="activity-item" *ngFor="let activity of recentActivity">
+              <!-- Icon showing the activity type -->
               <div class="activity-icon" [class]="activity.type">
                 <mat-icon>{{ getActivityIcon(activity.type) }}</mat-icon>
               </div>
+              <!-- Title and description -->
               <div class="activity-details">
                 <h4>{{ activity.title }}</h4>
                 <p>{{ activity.description }}</p>
                 <span class="activity-time">{{ activity.time }}</span>
               </div>
+              <!-- Status label -->
               <div class="activity-status" [class]="activity.status">
                 {{ activity.status }}
               </div>
@@ -207,6 +252,7 @@
     </div>
   </div>
 
+  <!-- Section to export reports -->
   <div class="export-section">
     <mat-card class="export-card">
       <mat-card-header>
@@ -214,6 +260,7 @@
         <mat-card-subtitle>Download reports in various formats</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
+        <!-- Buttons to export in different ways -->
         <div class="export-options">
           <button mat-stroked-button color="primary">
             <mat-icon>picture_as_pdf</mat-icon>
@@ -235,4 +282,5 @@
       </mat-card-content>
     </mat-card>
   </div>
+
 </div>

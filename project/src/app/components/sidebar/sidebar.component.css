@@ -1,195 +1,227 @@
+/* Sidebar container that sticks to the left side */
 .sidebar {
-  width: 280px;
-  height: 100vh;
-  background: white;
-  border-right: 1px solid var(--neutral-200);
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
+  width: 280px; /* Sidebar is 280px wide */
+  height: 100vh; /* Full height of the screen */
+  background: white; /* Background color is white */
+  border-right: 1px solid var(--neutral-200); /* A light border on the right side */
+  display: flex; /* Use flexbox to arrange children */
+  flex-direction: column; /* Stack children top to bottom */
+  position: fixed; /* Stays in place when scrolling */
+  left: 0; /* Stick to the left side */
+  top: 0; /* Start from the top */
+  z-index: 100; /* Put it on top of other elements */
 }
 
+/* Header section at the top of the sidebar */
 .sidebar-header {
-  padding: var(--spacing-6);
-  border-bottom: 1px solid var(--neutral-100);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-4);
+  padding: var(--spacing-6); /* Add space inside */
+  border-bottom: 1px solid var(--neutral-100); /* Line under the header */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  gap: var(--spacing-4); /* Space between items */
 }
 
+/* Logo container */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
+  display: flex; /* Use flex layout */
+  align-items: center; /* Center items vertically */
+  gap: var(--spacing-3); /* Space between logo and text */
 }
 
+/* Logo icon style */
 .logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
-  border-radius: var(--radius-lg);
-  display: flex;
+  width: 40px; /* Width of icon */
+  height: 40px; /* Height of icon */
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); /* Color gradient */
+  border-radius: var(--radius-lg); /* Rounded corners */
+  display: flex; /* Center the letter inside */
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 1.25rem;
+  color: white; /* White text */
+  font-weight: 700; /* Bold */
+  font-size: 1.25rem; /* Bigger text */
 }
 
+/* Text next to the logo */
 .logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--neutral-800);
+  font-size: 1.5rem; /* Large text */
+  font-weight: 700; /* Bold */
+  color: var(--neutral-800); /* Dark color */
 }
 
+/* Theme toggle wrapper */
 .theme-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Center the toggle */
 }
 
+/* Style for the switch button */
 .theme-toggle mat-slide-toggle {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2);
+  gap: var(--spacing-2); /* Space between icon and text */
 }
 
+/* Content area inside the sidebar */
 .sidebar-content {
-  flex: 1;
-  padding: var(--spacing-6);
-  overflow-y: auto;
+  flex: 1; /* Take remaining space */
+  padding: var(--spacing-6); /* Space inside */
+  overflow-y: auto; /* Scroll if content is too long */
 }
 
+/* Each section of navigation (like a category) */
 .nav-section {
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-8); /* Space at the bottom */
 }
 
+/* Title for nav sections */
 .nav-section-title {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--neutral-500);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: var(--spacing-4);
+  font-size: 0.75rem; /* Small text */
+  font-weight: 600; /* Bold */
+  color: var(--neutral-500); /* Light gray */
+  text-transform: uppercase; /* ALL CAPITAL letters */
+  letter-spacing: 0.05em; /* Space between letters */
+  margin-bottom: var(--spacing-4); /* Space below title */
 }
 
+/* Navigation list with no bullets */
 .nav-menu {
-  list-style: none;
+  list-style: none; /* No dots or numbers */
 }
 
+/* Each item in the menu */
 .nav-item {
-  margin-bottom: var(--spacing-2);
+  margin-bottom: var(--spacing-2); /* Space below each link */
 }
 
+/* Link style in the menu */
 .nav-link {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
-  padding: var(--spacing-3) var(--spacing-4);
-  border-radius: var(--radius-lg);
-  color: var(--neutral-600);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
+  align-items: center; /* Center items vertically */
+  gap: var(--spacing-3); /* Space between icon and text */
+  padding: var(--spacing-3) var(--spacing-4); /* Inner space */
+  border-radius: var(--radius-lg); /* Rounded corners */
+  color: var(--neutral-600); /* Text color */
+  text-decoration: none; /* No underline */
+  font-weight: 500; /* Medium bold */
+  transition: all 0.2s ease-in-out; /* Smooth hover effect */
 }
 
+/* When you hover over a nav link */
 .nav-link:hover {
-  background-color: var(--primary-50);
-  color: var(--primary-600);
-  transform: translateX(4px);
+  background-color: var(--primary-50); /* Light background */
+  color: var(--primary-600); /* Change text color */
+  transform: translateX(4px); /* Move right slightly */
 }
 
+/* When the link is active (current page) */
 .nav-link.active {
-  background-color: var(--primary-100);
-  color: var(--primary-700);
+  background-color: var(--primary-100); /* Stronger background */
+  color: var(--primary-700); /* Darker text */
 }
 
+/* Style for icons in the nav */
 .nav-icon {
-  font-size: 1.25rem;
-  width: 24px;
-  text-align: center;
+  font-size: 1.25rem; /* Icon size */
+  width: 24px; /* Fixed width for alignment */
+  text-align: center; /* Center icon */
 }
 
+/* Footer at the bottom of the sidebar */
 .sidebar-footer {
-  padding: var(--spacing-6);
-  border-top: 1px solid var(--neutral-100);
+  padding: var(--spacing-6); /* Space inside */
+  border-top: 1px solid var(--neutral-100); /* Top border */
 }
 
+/* User profile container in footer */
 .user-profile {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between user and button */
   padding: var(--spacing-3);
   border-radius: var(--radius-lg);
-  transition: background-color 0.2s;
+  transition: background-color 0.2s; /* Smooth hover */
   width: 100%;
 }
 
+/* Change background on hover */
 .user-profile:hover {
-  background-color: var(--neutral-50);
+  background-color: var(--neutral-50); /* Light gray background */
 }
 
+/* Info next to avatar */
 .user-info {
   flex: 1;
-  margin-left: var(--spacing-3);
+  margin-left: var(--spacing-3); /* Space from avatar */
 }
 
+/* User image */
 .user-avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+  border-radius: 50%; /* Make it round */
+  object-fit: cover; /* Crop image to fit */
 }
 
+/* User's name */
 .user-name {
-  font-weight: 600;
-  color: var(--neutral-800);
+  font-weight: 600; /* Bold */
+  color: var(--neutral-800); /* Dark text */
 }
 
+/* User's role or job title */
 .user-role {
-  font-size: 0.875rem;
-  color: var(--neutral-500);
+  font-size: 0.875rem; /* Small text */
+  color: var(--neutral-500); /* Light gray text */
 }
 
+/* Logout button look */
 .logout-btn {
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  opacity: 0.7; /* Slightly faded */
+  transition: opacity 0.2s; /* Smooth change */
 }
 
+/* When hovering logout button */
 .logout-btn:hover {
-  opacity: 1;
+  opacity: 1; /* Full visibility */
 }
 
+/* Mobile screen adjustments */
 @media (max-width: 768px) {
   .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%); /* Hide sidebar to the left */
+    transition: transform 0.3s ease-in-out; /* Slide in/out smoothly */
   }
-  
+
+  /* When sidebar should be visible on mobile */
   .sidebar.mobile-open {
-    transform: translateX(0);
+    transform: translateX(0); /* Show sidebar */
   }
 }
+
+/* Section for switching user profile */
 .profile-switcher {
-  padding: var(--spacing-6);
-  border-top: 1px solid var(--neutral-100);
-  border-bottom: 1px solid var(--neutral-100);
+  padding: var(--spacing-6); /* Space inside */
+  border-top: 1px solid var(--neutral-100); /* Line on top */
+  border-bottom: 1px solid var(--neutral-100); /* Line on bottom */
 }
 
+/* The select/dropdown input */
 .profile-select {
-  width: 100%;
+  width: 100%; /* Take full width */
 }
 
+/* Each profile option inside dropdown */
 .profile-option {
   display: flex;
   align-items: center;
-  gap: var(--spacing-3);
+  gap: var(--spacing-3); /* Space between icon and name */
 }
 
+/* Icon inside the profile select */
 .profile-icon {
   font-size: 1.25rem;
   width: 24px;
-  text-align: center;
+  text-align: center; /* Center the icon */
 }
